@@ -1,5 +1,11 @@
+import studySessionResolvers from './studySessionResolvers';
+// import more resolvers here when needed
+
 export const resolvers = {
-    Query: {
-      hello: () => 'Hello from the updated Apollo Server!',
-    },
-  };
+  Query: {
+    ...studySessionResolvers.Query,
+  },
+  Mutation: {
+    ...studySessionResolvers.Mutation,
+  },
+};

@@ -5,10 +5,10 @@ import cors from "cors";
 import mongoose from "mongoose";
 import "dotenv/config";
 
-// Replace these with your actual GraphQL schema and resolvers
-import { typeDefs } from "./schema/typeDefs";
+import connectDB from './utils/db';
+import typeDefs from "./schema/typeDefs";
 import { resolvers } from "./resolvers";
-
+ 
 const startServer = async () => {
   const app = express();
   const port = 4000;
@@ -28,16 +28,17 @@ const startServer = async () => {
   app.use("/graphql", expressMiddleware(server));
 
   // 🔗 MongoDB Connection
-  mongoose.connect(process.env.MONGO_URI!)
-    .then(() => {
-      console.log("✅ MongoDB connected");
-      app.listen(port, () => {
-        console.log(`🚀 Server ready at http://localhost:${port}/graphql`);
-      });
-    })
-    .catch((err) => {
-      console.error("❌ MongoDB connection error:", err);
+  try {
+    // await mongoose.connect(process.env.MONGO_URI!);
+    await connectDB()
+    console.log("✅ Connected to MongoDB");
+
+    app.listen(port, () => {
+      console.log(`🚀 Server ready at http://localhost:${port}/graphql`);
     });
+  } catch (err) {
+    console.error("❌ MongoDB connection error:", err);
+  }
 };
 
 startServer();

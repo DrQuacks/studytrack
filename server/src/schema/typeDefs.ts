@@ -1,8 +1,29 @@
 //temp
 import { gql } from 'graphql-tag';
 
-export const typeDefs = gql`
+const typeDefs = gql`
+  type StudySession {
+    id: ID!
+    user: ID!
+    learningPath: ID!
+    durationMinutes: Int!
+    date: String!
+  }
+
   type Query {
-    hello: String
+    studySessions: [StudySession!]!
+  }
+
+  input StudySessionInput {
+    user: ID!
+    learningPath: ID!
+    durationMinutes: Int!
+    date: String
+  }
+
+  type Mutation {
+    addStudySession(input: StudySessionInput!): StudySession!
   }
 `;
+
+export default typeDefs;
