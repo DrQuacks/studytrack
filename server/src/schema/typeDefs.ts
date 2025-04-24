@@ -2,12 +2,14 @@
 import { gql } from 'graphql-tag';
 
 const typeDefs = gql`
+  scalar DateTime
+
   type StudySession {
     id: ID!
     user: ID!
     learningPath: ID!
     durationMinutes: Int!
-    date: String!
+    date: DateTime!
   }
 
   type Query {
@@ -18,7 +20,7 @@ const typeDefs = gql`
     user: ID!
     learningPath: ID!
     durationMinutes: Int!
-    date: String
+    date: DateTime
   }
 
   type Mutation {
