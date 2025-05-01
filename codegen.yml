@@ -1,0 +1,9 @@
+schema:
+  - 'http://localhost:4000/graphql'  # Your GraphQL endpoint
+documents: './client/graphql/queries/**/*.ts'  # Path to your queries (client-side)
+generates:
+  ./client/graphql/generated/graphql.ts:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-react-apollo'

@@ -12,8 +12,21 @@ const typeDefs = gql`
     date: DateTime!
   }
 
+  type LearningPath {
+    id: ID!
+    title: String!
+    description: String
+    owner: ID!
+    resources: [ID!]
+    createdAt: DateTime!
+  }
+
   type Query {
     studySessions: [StudySession!]!
+  }
+
+  type Query {
+    learningPaths: [LearningPath!]!
   }
 
   input StudySessionInput {

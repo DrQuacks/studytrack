@@ -1,5 +1,13 @@
 {
   "dependencies": {
-    "express": "^4.21.2"
+    "@graphql-codegen/cli": "^5.0.5",
+    "@graphql-codegen/typescript": "^4.1.6",
+    "@graphql-codegen/typescript-operations": "^4.6.0",
+    "@graphql-codegen/typescript-react-apollo": "^4.3.2",
+    "express": "^4.21.2",
+    "typescript": "^5.8.3"
+  },
+  "scripts": {
+    "codegen": "graphql-codegen"
   }
 }
