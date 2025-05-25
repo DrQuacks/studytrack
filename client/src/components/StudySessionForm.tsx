@@ -17,7 +17,8 @@ const StudySessionForm = () => {
     const [formData, setFormData] = useState({
         learningPath: '',
         durationMinutes: '',
-        date: new Date().toISOString().split("T")[0], // format as YYYY-MM-DD for input[type="date"]
+        date: new Date().toISOString().slice(0, 16), // format as yyyy-MM-ddThh:mm
+        // date: new Date().toISOString().split("T")[0], // format as YYYY-MM-DD for input[type="date"]
     });
 
     const { data } = useSuspenseQuery<GetLearningPathsQuery>(GET_LEARNING_PATHS);
