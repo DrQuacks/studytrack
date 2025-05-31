@@ -32,11 +32,19 @@ export default function RootLayout({
             </div>
 
             {/* Right side: auth actions (placeholder for now) */}
-            <div>
-              {/* Replace this with actual auth UI later */}
-              <button className="text-sm bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+            <div className="flex items-center gap-3">
+              <Link 
+                href="/login"
+                className="text-sm text-gray-700 hover:text-blue-600 transition"
+              >
                 Log In
-              </button>
+              </Link>
+              <Link
+                href="/signup"
+                className="text-sm bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+              >
+                Sign Up
+              </Link>
             </div>
           </nav>
           <main className="max-w-4xl mx-auto px-4">
